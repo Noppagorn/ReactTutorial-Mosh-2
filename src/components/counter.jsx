@@ -24,6 +24,22 @@ class Counter extends Component {
   // true && "HI" will be print HI
   // true && "HI" && 1 will be print 1
 
+  // constructor() {
+  //   super();
+  //   console.log("Constructor", this);
+  //   this.handleIncrement = this.handleIncrement.bind(this);
+  // }
+
+  handleIncrement = (product) => {
+    console.log(product);
+    console.log("Increment Clicked", this);
+    this.setState({ count: this.state.count + 1 });
+  };
+
+  // doHandleIncrement = () => {
+  //   this.handleIncrement({ id: 1 });
+  // };
+
   render() {
     return (
       // <React.Fragment>
@@ -42,8 +58,17 @@ class Counter extends Component {
       },
       (
         <div>
-          {this.state.tags.length === 0 && "Please create a new tag"}
-          {this.renderTags()}
+          <div>
+            {this.state.tags.length === 0 && "Please create a new tag"}
+            {this.renderTags()}
+          </div>
+          <span className={this.getBedgeClasses()}>{this.formatCount()}</span>
+          <button
+            onClick={() => this.handleIncrement({ id: 1 })}
+            className="btn btn-secondary btn-sm"
+          >
+            Increment
+          </button>
         </div>
       )
     );
