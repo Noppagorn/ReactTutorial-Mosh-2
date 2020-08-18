@@ -52,7 +52,7 @@ class Counter extends Component {
             {this.renderTags()}
           </div> */}
 
-          {this.props.children}
+          {/* {this.props.children} */}
           <span className={this.getBedgeClasses()}>{this.formatCount()}</span>
           <button
             onClick={() => this.props.onIncrement(this.props.counter)}
