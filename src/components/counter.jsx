@@ -15,6 +15,16 @@ class Counter extends Component {
       </ul>
     );
   }
+  componentDidUpdate(preProps, prevState) {
+    console.log("prevProps", preProps);
+    console.log("prevState", prevState);
+    if (preProps.counter.value !== this.props.counter.value) {
+    }
+  }
+
+  componentWillUnmount() {
+    console.log("Counter - Unmount");
+  }
   //***********************
   // true && "HI" will be print HI
   // true && "HI" && 1 will be print 1
@@ -30,6 +40,7 @@ class Counter extends Component {
   // };
 
   render() {
+    console.log("Counter - Rendered");
     return (
       // <React.Fragment>
       {
@@ -59,6 +70,12 @@ class Counter extends Component {
             className="btn btn-secondary btn-sm"
           >
             Increment
+          </button>
+          <button
+            onClick={() => this.props.onDecreased(this.props.counter)}
+            className="btn btn-primary btn-sm m-2"
+          >
+            Decreasement
           </button>
           <button
             onClick={() => this.props.onDelete(this.props.counter.id)}
